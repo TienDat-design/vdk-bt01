@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>He Thong Bai Do Xe</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.0.1/mqttws31.min.js"></script>
+</head>
+<body>
+  <h1>
+    <span id="conn-dot" class="connection-indicator"></span>
+    TRUNG TAM QUAN LY DO XE
+  </h1>
+
+  <div class="card">
+    <h2>SUC CHUA BAI</h2>
+
+    <div class="big-number">
+      <span id="car-val">0</span> /
+      <span id="max-val">5</span>
+    </div>
+
+    <div class="status-box">
+      <div class="status-text" id="status-val">DANG KET NOI...</div>
+      <div class="info-row">
+        <span>Cam bien: <b id="dist-val">--</b> cm</span>
+        <span id="log-val">Cho du lieu...</span>
+      </div>
+    </div>
+
+    <div class="barrier-scene">
+      <div class="barrier-label">Trang thai can</div>
+      <div class="barrier-wrapper">
+        <div class="barrier-post"></div>
+        <div id="barrier-arm" class="barrier-arm down"></div>
+      </div>
+      <div class="barrier-track"></div>
+    </div>
+
+    <button class="btn-exit" onclick="carExit()">XAC NHAN XE RA</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
