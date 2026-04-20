@@ -13,32 +13,43 @@
     TRUNG TÂM QUẢN LÝ ĐỖ XE
   </h1>
 
-  <div class="card">
-    <h2>SỨC CHỨA BÃI</h2>
-
-    <div class="big-number">
-      <span id="car-val">0</span> /
-      <span id="max-val">5</span>
-    </div>
-
-    <div class="status-box">
-      <div class="status-text" id="status-val">ĐANG KẾT NỐI...</div>
-      <div class="info-row">
-        <span>Cảm biến: <b id="dist-val">--</b> cm</span>
-        <span id="log-val">Chờ dữ liệu...</span>
+  <div class="dashboard">
+    <section class="panel">
+      <h2>SỨC CHỨA BÃI</h2>
+      <div class="big-number">
+        <span id="car-val">0</span> /
+        <span id="max-val">5</span>
       </div>
-    </div>
+    </section>
 
-    <div class="barrier-scene">
-      <div class="barrier-label">Trạng thái cần</div>
-      <div class="barrier-wrapper">
-        <div class="barrier-post"></div>
-        <div id="barrier-arm" class="barrier-arm down"></div>
+    <section class="panel">
+      <h2>TRẠNG THÁI HỆ THỐNG</h2>
+      <div class="status-box">
+        <div class="status-text" id="status-val">ĐANG KẾT NỐI...</div>
+        <div class="info-row">
+          <span>Cảm biến: <b id="dist-val">--</b> cm</span>
+          <span id="log-val">Chờ dữ liệu...</span>
+        </div>
       </div>
-      <div class="barrier-track"></div>
-    </div>
+    </section>
 
-    <button class="btn-exit" onclick="carExit()">XÁC NHẬN XE RA</button>
+    <section class="panel">
+      <h2>TRẠNG THÁI CẦN</h2>
+      <div class="barrier-scene">
+        <div class="barrier-label">Mô phỏng thanh chắn</div>
+        <div class="barrier-wrapper">
+          <div class="barrier-post"></div>
+          <div id="barrier-arm" class="barrier-arm down"></div>
+        </div>
+        <div class="barrier-track"></div>
+      </div>
+    </section>
+
+    <section class="panel panel-control">
+      <h2>ĐIỀU KHIỂN</h2>
+      <p class="panel-note">Nhấn nút để xác nhận xe đã rời bãi và gửi lệnh qua MQTT.</p>
+      <button class="btn-exit" onclick="carExit()">XÁC NHẬN XE RA</button>
+    </section>
   </div>
 
   <script src="script.js"></script>

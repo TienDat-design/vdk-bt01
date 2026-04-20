@@ -22,13 +22,19 @@ body {
   text-align: center;
 }
 
-.card {
+.dashboard {
+  width: min(1000px, 100%);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.panel {
   background: var(--card-bg);
-  padding: 40px;
+  padding: 28px;
   border-radius: 16px;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
-  max-width: 450px;
-  margin: 0 auto;
 }
 
 h1 {
@@ -45,7 +51,7 @@ h1 {
 }
 
 h2 {
-  margin-top: 0;
+  margin: 0 0 16px;
   color: var(--text-muted);
   font-size: 16px;
   text-transform: uppercase;
@@ -62,7 +68,7 @@ h2 {
   background-color: #f1f5f9;
   border-radius: 10px;
   padding: 15px;
-  margin-bottom: 25px;
+  margin-bottom: 0;
 }
 
 .barrier-scene {
@@ -70,7 +76,7 @@ h2 {
   border: 1px solid #d1d5db;
   border-radius: 12px;
   padding: 16px 14px;
-  margin-bottom: 24px;
+  margin-bottom: 0;
 }
 
 .barrier-label {
@@ -193,6 +199,19 @@ h2 {
   transition: 0.2s;
 }
 
+.panel-control {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 18px;
+}
+
+.panel-note {
+  margin: 0;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
 .btn-exit:hover {
   background-color: #d97706;
 }
@@ -222,8 +241,14 @@ h2 {
   background: var(--success);
 }
 
+@media (max-width: 760px) {
+  .dashboard {
+    grid-template-columns: 1fr;
+  }
+}
+
 @media (max-width: 520px) {
-  .card {
+  .panel {
     padding: 24px;
   }
 
