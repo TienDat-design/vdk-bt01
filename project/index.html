@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>System Parking</title>
+  <title>Hệ Thống Bãi Đỗ Xe</title>
   <link rel="stylesheet" href="style.css" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.0.1/mqttws31.min.js"></script>
 </head>
@@ -22,15 +22,15 @@
     </div>
 
     <div class="status-box">
-      <div class="status-text" id="status-val">DANG KET NOI...</div>
+      <div class="status-text" id="status-val">ĐANG KẾT NỐI...</div>
       <div class="info-row">
-        <span>Cam bien: <b id="dist-val">--</b> cm</span>
-        <span id="log-val">Cho du lieu...</span>
+        <span>Cảm biến: <b id="dist-val">--</b> cm</span>
+        <span id="log-val">Chờ dữ liệu...</span>
       </div>
     </div>
 
     <div class="barrier-scene">
-      <div class="barrier-label">Trang thai can</div>
+      <div class="barrier-label">Trạng thái cần</div>
       <div class="barrier-wrapper">
         <div class="barrier-post"></div>
         <div id="barrier-arm" class="barrier-arm down"></div>
@@ -38,7 +38,7 @@
       <div class="barrier-track"></div>
     </div>
 
-    <button class="btn-exit" onclick="carExit()">XAC NHAN XE RA</button>
+    <button class="btn-exit" onclick="carExit()">XÁC NHẬN XE RA</button>
   </div>
 
   <script src="script.js"></script>
