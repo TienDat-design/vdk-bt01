@@ -75,8 +75,13 @@ h2 {
   background: linear-gradient(180deg, #eff6ff 0%, #dbeafe 100%);
   border: 1px solid #d1d5db;
   border-radius: 12px;
-  padding: 16px 14px;
-  margin-bottom: 0;
+
+  width: 100%;        /* rộng theo panel */
+  max-width: 520px;   /* tăng chiều ngang tối đa */
+  min-height: 250px;  /* tăng chiều cao */
+  padding: 20px 18px; /* nới không gian bên trong */
+
+  margin: 0 auto;     /* canh giữa nếu có max-width */
 }
 
 .barrier-label {
@@ -103,7 +108,7 @@ h2 {
 
 .barrier-wrapper {
   position: relative;
-  height: 72px;
+  height: 150px;
   display: flex;
   align-items: flex-end;
 }
@@ -119,8 +124,8 @@ h2 {
 .barrier-arm {
   position: absolute;
   left: 14px;
-  bottom: 42px;
-  width: 190px;
+  bottom: 40px;
+  width: 150px;  /* chiều dài thanh chân */
   height: 10px;
   border-radius: 999px;
   transform-origin: 4px 50%;
@@ -263,6 +268,6 @@ h2 {
   }
 
   .barrier-arm {
-    width: 150px;
+    width: 120px;
   }
 }
