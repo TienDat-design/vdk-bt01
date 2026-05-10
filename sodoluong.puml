@@ -1,0 +1,66 @@
+@startuml
+title So do luong he thong bai do xe MQTT
+
+skinparam backgroundColor #FFFFFF
+skinparam shadowing false
+skinparam defaultTextAlignment center
+skinparam ArrowColor #334155
+skinparam ActivityBorderColor #334155
+skinparam ActivityBackgroundColor #F8FAFC
+skinparam ActivityDiamondBackgroundColor #FEF3C7
+skinparam ActivityDiamondBorderColor #D97706
+skinparam ActivityFontName Segoe UI
+skinparam ActivityFontSize 14
+
+start
+
+:Nguoi dung mo trang web;
+:Web ket noi broker MQTT\n(broker.emqx.io qua WebSocket);
+:Web subscribe topic\ntram-kiem-soat/trang-thai;
+:ESP32 khoi dong\nva ket noi WiFi + MQTT;
+:ESP32 doc cam bien sieu am\nTRIG/ECHO;
+
+if (Phat hien xe den gan cong?) then (Co)
+  if (Bai con cho?) then (Co)
+    :ESP32 mo can;
+    :Publish len tram-kiem-soat/trang-thai\n{trangThai, khoangCach, soXe, maxXe};
+    :Broker gui du lieu retained\nve web;
+    :Web cap nhat so xe, trang thai\nva mo phong can;
+    :Xe di qua xong;
+    :ESP32 dong can;
+    :ESP32 publish trang thai da dong;
+    :Web cap nhat giao dien;
+  else (Khong)
+    :ESP32 publish\n"BÃI ĐẦY! TỪ CHỐI MỞ";
+    :Web hien thi canh bao day;
+  endif
+else (Khong)
+  if (Nguoi dung bam nut xe ra?) then (Co)
+    :Web publish CAR_EXIT\nlen tram-kiem-soat/dieu-khien;
+    :Broker gui lenh ve ESP32;
+    :ESP32 giam so xe\nva dat co isExiting;
+    :ESP32 mo can cho xe ra;
+    :ESP32 publish trang thai xe ra;
+    :Web cap nhat giao dien;
+  else (Khong)
+    :He thong tiep tuc chay vong loop;
+  endif
+endif
+
+if (Mat ket noi hoac loi dien?) then (Co)
+  :Last Will Message\n"LỖI: TRẠM MẤT ĐIỆN!";
+  :Web hien thi trang thai loi;
+endif
+
+:Ket thuc luong demo;
+stop
+
+note right
+Topic dung trong du an:
+tram-kiem-soat/trang-thai
+tram-kiem-soat/dieu-khien
+
+ESP32 publish trang thai voi retain.
+end note
+
+@enduml
